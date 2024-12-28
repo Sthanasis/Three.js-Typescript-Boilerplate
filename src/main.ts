@@ -90,12 +90,7 @@ function animate() {
   controls.update();
 
   mixer?.update(delta);
-  if (isMobile) {
-    /* your code here */
-    initMobileListeners();
-  } else {
-    initDesktopListeners();
-  }
+  if (!isMobile) initDesktopListeners();
 
   speed = lerp(speed, toSpeed, delta * 10);
   gridHelper.position.z -= speed * delta;
@@ -105,6 +100,7 @@ function animate() {
 
   stats.update();
 }
+
 function holdButton(
   button: HTMLButtonElement,
   startAction: () => void,
@@ -214,6 +210,9 @@ function initDesktopListeners() {
 
 async function init() {
   await loadCharacter();
+  if (isMobile) {
+    initMobileListeners();
+  }
   animate();
 }
 
