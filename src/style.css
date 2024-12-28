@@ -1,0 +1,12 @@
+body {
+  overflow: hidden;
+  margin: 0px;
+}
+
+button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 16px;
+  border-radius: 99999px;
+}
